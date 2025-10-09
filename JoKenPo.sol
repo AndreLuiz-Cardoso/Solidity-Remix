@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.30;
 
 // Módulo 02 > Lição 04 > Tóps 03 e 05 - JoKenPo com Aposta
 contract JoKenPo {
