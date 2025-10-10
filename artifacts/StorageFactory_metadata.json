@@ -7,14 +7,20 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "createSimpleSotrageContract",
+				"name": "createSimpleStorageContract",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "simpleStorage",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "listOfSimpleStorageContracts",
 				"outputs": [
 					{
 						"internalType": "contract SimpleStorage",
@@ -23,6 +29,43 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_simpleStorageIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "sfGet",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_simpleStorageIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_simpleStorageNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "sfStore",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -53,12 +96,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/StorageFactory.sol": {
-			"keccak256": "0x3f10ac06971aabb45abe8f6bf7e79daf0649f483c6b8c2df1cf8ac8e4a43ab87",
+		"contracts/SimpleStorage.sol": {
+			"keccak256": "0x09bf50efe57367c3edbd9670c0736ceef29da73a7e2f4b90bb0a497b9a371378",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://39e760d8e6b52704a644f8d7c3c147ed968b874a4e1c12a6a775cb4701e47f26",
-				"dweb:/ipfs/QmVNKRhd2orLzE9UTw1nMuf116aYpjTGP3fbZ6xj7jbqgz"
+				"bzz-raw://c734697996733579a28c882d4475d4697403636031d40450ad763e1cfedf179d",
+				"dweb:/ipfs/Qmby8Zywm28kndoHDtq3uMAPCCtTrPyzDFgrFmTQ2QZwLW"
+			]
+		},
+		"contracts/StorageFactory.sol": {
+			"keccak256": "0x7d4f6cb1c3f88ed662bc68a7e0bbce1e0ef06208016eb320e3eca5361b9caf7b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6aa558b2d39aa97947d005aeec8d9b3f6788b8c0ad97d2dd21b7158ccc99f09c",
+				"dweb:/ipfs/QmSTSuLZ7mcHWmtZC6Qr8eLZCxAKTDVJMes5pEjunhLmAc"
 			]
 		}
 	},

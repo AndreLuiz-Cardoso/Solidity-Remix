@@ -2,40 +2,32 @@
 
 pragma solidity ^0.8.19;
 
-contract SimpleStorage {
-    uint256 myFavoriteNumber;
-
-    struct Person {
-        uint256 favoriteNumber;
-        string name;
-    }
-    // uint256[] public anArray;
-    Person[] public listOfPeople;
-
-    mapping(string => uint256) public nameToFavoriteNumber;
-
-    function store(uint256 _favoriteNumber) public {
-        myFavoriteNumber = _favoriteNumber;
-    }
-
-    function retrieve() public view returns (uint256) {
-        return myFavoriteNumber;
-    }
-
-    function addPerson(string memory _name, uint256 _favoriteNumber) public {
-        listOfPeople.push(Person(_favoriteNumber, _name));
-        nameToFavoriteNumber[_name] = _favoriteNumber;
-    }
-}
+import {SimpleStorage} from "./SimpleStorage.sol";
 
 contract StorageFactory{
 
-    SimpleStorage public simpleStorage;
+   SimpleStorage[] public listOfSimpleStorageContracts;
 
-
-
-    function createSimpleSotrageContract() public {
-        simpleStorage = new SimpleStorage();
+    function createSimpleStorageContract() public {
+        SimpleStorage simpleStorageContractVariable = new SimpleStorage();
+        // SimpleStorage simpleStorage = new SimpleStorage();
+        listOfSimpleStorageContracts.push(simpleStorageContractVariable);
     }
 
+    function sfStore(
+        uint256 _simpleStorageIndex,
+        uint256 _simpleStorageNumber
+    ) public {
+        // Address
+        // ABI
+        // SimpleStorage(address(simpleStorageArray[_simpleStorageIndex])).store(_simpleStorageNumber);
+        listOfSimpleStorageContracts[_simpleStorageIndex].store(
+            _simpleStorageNumber
+        );
+    }
+
+    function sfGet(uint256 _simpleStorageIndex) public view returns (uint256) {
+        // return SimpleStorage(address(simpleStorageArray[_simpleStorageIndex])).retrieve();
+        return listOfSimpleStorageContracts[_simpleStorageIndex].retrieve();
+    }
 }
